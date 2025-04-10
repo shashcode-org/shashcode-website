@@ -7,6 +7,7 @@ import { Card } from '@/components/ui/card';
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '@/components/ui/table';
 import { Separator } from '@/components/ui/separator';
 import { motion, AnimatePresence } from 'framer-motion';
+import { SiLeetcode, SiGeeksforgeeks } from "react-icons/si";
 
 export const CSV_TABLE_UI = () => {
     const [expandedTopicIndex, setExpandedTopicIndex] = useState(null);
@@ -154,25 +155,25 @@ export const CSV_TABLE_UI = () => {
                                                                     </TableCell>
                                                                     <TableCell className="text-center align-top">
                                                                         <div className="flex justify-center space-x-2">
-                                                                            {detail.Links.map((link, index) => (
-                                                                                link !== "N/A" ? (
-                                                                                    <a 
-                                                                                        key={index} 
-                                                                                        href={link} 
-                                                                                        target="_blank" 
-                                                                                        rel="noopener noreferrer"
-                                                                                        className="inline-flex items-center justify-center h-8 w-8 rounded-full bg-background hover:bg-accent transition-colors"
-                                                                                    >
-                                                                                        {link.includes("leetcode") ? (
-                                                                                            <span className="text-yellow-500 text-xs font-bold">LC</span>
-                                                                                        ) : link.includes("geeksforgeeks") ? (
-                                                                                            <span className="text-green-600 text-xs font-bold">GFG</span>
-                                                                                        ) : (
-                                                                                            <span className="text-primary text-xs font-bold">Solve</span>
-                                                                                        )}
-                                                                                    </a>
-                                                                                ) : null
-                                                                            ))}
+                                                                                {detail.Links.map((link, index) => (
+                                                                                    link !== "N/A" ? (
+                                                                                        <a
+                                                                                            key={index}
+                                                                                            href={link}
+                                                                                            target="_blank"
+                                                                                            rel="noopener noreferrer"
+                                                                                            className="inline-flex items-center justify-center h-8 w-8 rounded-full bg-background hover:bg-accent transition-colors"
+                                                                                        >
+                                                                                            {link.includes("leetcode") ? (
+                                                                                                <SiLeetcode className="w-[16px] sm:w-[20px] h-auto" style={{ color: '#FFA116' }} />
+                                                                                            ) : link.includes("geeksforgeeks") ? (
+                                                                                                <SiGeeksforgeeks className="w-[20px] sm:w-[24px] h-auto" style={{ color: '#2F8D46' }} />
+                                                                                            ) : (
+                                                                                                <span className="text-primary text-xs font-bold">Solve</span>
+                                                                                            )}
+                                                                                        </a>
+                                                                                    ) : null
+                                                                                ))}
                                                                         </div>
                                                                     </TableCell>
                                                                 </>
@@ -186,7 +187,10 @@ export const CSV_TABLE_UI = () => {
                                                                         rel="noopener noreferrer"
                                                                         className="inline-flex items-center justify-center h-8 w-8 rounded-full bg-background hover:bg-accent transition-colors"
                                                                     >
-                                                                        <Youtube className="h-4 w-4 text-red-600" />
+                                                                        <Youtube
+                                                                            className="h-4 w-4"
+                                                                            style={{ color: "#FF0000" }} // YouTube red
+                                                                        />
                                                                     </a>
                                                                 )}
                                                             </TableCell>
